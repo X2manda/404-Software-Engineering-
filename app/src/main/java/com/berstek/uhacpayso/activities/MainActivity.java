@@ -1,5 +1,6 @@
 package com.berstek.uhacpayso.activities;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -18,9 +19,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.berstek.uhacpayso.R;
+import com.berstek.uhacpayso.fragments.AccountFragment;
 import com.berstek.uhacpayso.fragments.AddTransactionFragment;
 import com.berstek.uhacpayso.fragments.CashManagementFragment;
+import com.berstek.uhacpayso.fragments.HistoryFragment;
 import com.berstek.uhacpayso.fragments.NoCycleFragment;
+import com.berstek.uhacpayso.fragments.StatsFragment;
 import com.berstek.uhacpayso.model.AppSettings;
 import com.berstek.uhacpayso.model.CycleBuilder;
 import com.berstek.uhacpayso.model.CycleData;
@@ -85,21 +89,30 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        FragmentManager fn = getFragmentManager();
+        FragmentTransaction ft = fn.beginTransaction();
+
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_home) {
+            CashManagementFragment cashManagementFragment = new CashManagementFragment();
+            ft.replace(R.id.fragment_main_fragment, cashManagementFragment);
+            ft.commit();
+        }
+        else if (id == R.id.nav_account) {
+            Fragment accountFragment = new AccountFragment();
+            ft.replace(R.id.fragment_main_fragment, accountFragment);
+            ft.commit();
+        }
+        else if (id == R.id.nav_stats) {
+            Fragment statsFragment = new StatsFragment();
+            ft.replace(R.id.fragment_main_fragment, statsFragment);
+            ft.commit();
+        }
+        else if (id == R.id.nav_history) {
+            Fragment historyFragment = new HistoryFragment();
+            ft.replace(R.id.fragment_main_fragment, historyFragment);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

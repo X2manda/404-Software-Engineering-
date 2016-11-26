@@ -1,0 +1,101 @@
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context="com.berstek.uhacpayso.fragments.AccountFragment"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:text="@string/SpareCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView20"
+            android:textSize="14sp" />
+
+        <TextView
+            android:text="P 1500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView20"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:id="@+id/textView21"
+            android:textSize="30sp" />
+
+        <TextView
+            android:text="@string/CashInBank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:id="@+id/textView23"
+            android:layout_below="@+id/textView21"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="Remaining Allowance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView26"
+            android:layout_below="@+id/button2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp" />
+
+        <TextView
+            android:text="P 500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/textView27"
+            android:textSize="30sp"
+            android:layout_below="@+id/textView26"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_plus_dark"
+            android:id="@+id/imageView4"
+            android:layout_alignBottom="@+id/textView27"
+            android:layout_toStartOf="@+id/textView26"
+            android:layout_marginEnd="27dp" />
+
+        <Button
+            android:text="Link Account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/button2"
+            android:layout_below="@+id/textView23"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="P 2,000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView27"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:id="@+id/textView28"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@color/green" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_equal"
+            android:id="@+id/imageView5"
+            android:layout_alignTop="@+id/textView28"
+            android:layout_alignStart="@+id/imageView4" />
+
+    </RelativeLayout>

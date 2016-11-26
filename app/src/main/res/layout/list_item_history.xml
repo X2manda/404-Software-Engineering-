@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView app:cardElevation="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="90dp">
+
+        <TextView
+            android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:text="11/25/2016"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txt_date"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_marginTop="7dp"
+            android:text="P 15000\nof\nP 6000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_total_spending"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:layout_below="@+id/txt_date"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

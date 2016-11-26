@@ -55,9 +55,6 @@ public class CycleUtils {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     }
 
-    public static double calculateDailyBalance(double budget, double spendings, int remainingDays) {
-        return (budget - spendings) / remainingDays;
-    }
 
     public static int getRemainingDays(String startDate, String currentDate) {
         switch (startDate.toLowerCase()) {
@@ -73,6 +70,20 @@ public class CycleUtils {
 
             default: return 0;
         }
+    }
+
+    private String getCycleEnd(String start) {
+        String[] parts = start.split("-");
+
+        return increment(parts[0]) + "-" + decrement(parts[1]) + "-" + parts[2];
+    }
+
+    private String increment(String str) {
+        return Integer.toString(Integer.parseInt(str) + 1);
+    }
+
+    private String decrement(String str) {
+        return Integer.toString(Integer.parseInt(str) + - 1);
     }
 
 }

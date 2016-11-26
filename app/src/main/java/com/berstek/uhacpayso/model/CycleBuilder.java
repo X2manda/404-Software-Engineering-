@@ -42,20 +42,29 @@ public class CycleBuilder extends SQLiteOpenHelper {
             }
         }
         else if(cycleType.equalsIgnoreCase("MONTHLY")) {
-
+            clearStatus(db);
+            insertMonthlyCycle(db);
         }
         db.close();
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
+    private void insertMonthlyCycle(SQLiteDatabase db) {
+        try {
+            db.execSQL("insert into " + TABLE_CYCLES + " values ('" +
 
+                    CycleUtils.getCurrentDate() + "','" +
+                    "" + "','" +
+                    "WEEKLY" + "','" +
+                    CycleUtils.getCurrentDay() + "','" +
+                    "7" + "','" +
+                    "1" + "','" +
+                    appSettings.getBudget() + "')"
+            );
+        } catch(Exception e) {
+
+        }
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
 
     private void insertCycle(SQLiteDatabase db) {
        try {
@@ -90,5 +99,15 @@ public class CycleBuilder extends SQLiteOpenHelper {
 
     private void clearStatus(SQLiteDatabase db) {
         db.execSQL("update cycles set status = '0' where status = '1' AND start != '" + CycleUtils.getCurrentDate() + "'");
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
     }
 }
