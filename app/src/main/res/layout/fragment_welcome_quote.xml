@@ -25,7 +25,8 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="10dp"
         android:layout_alignBottom="@+id/imageView7"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        app:backgroundTint="@android:color/holo_purple" />
 
     <LinearLayout
         android:gravity="center"
