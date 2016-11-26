@@ -2,6 +2,7 @@ package com.berstek.uhacpayso.fragments;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -52,6 +53,9 @@ public class CurrencySelectionFragment extends Fragment implements CurrenciesAda
 
         fragment.setSetupTempData(setupTempData);
         FragmentManager fn = getFragmentManager();
-        fn.beginTransaction().replace(R.id.fragment_setup_fragment, fragment).commit();
+        FragmentTransaction ft = fn.beginTransaction();
+        ft.replace(R.id.fragment_setup_fragment, fragment);
+        ft.setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_right);
+        ft.commit();
     }
 }
