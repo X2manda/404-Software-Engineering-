@@ -1,8 +1,5 @@
 package com.berstek.uhacpayso.staticData;
 
-
-
-
 import com.berstek.uhacpayso.model.TransactionSelectionItem;
 
 import java.util.ArrayList;

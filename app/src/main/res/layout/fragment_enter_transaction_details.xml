@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.berstek.uhacpayso.fragments.EnterTransactionDetailsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:focusable="false"
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/textView6"
+        android:textColor="@color/white" />
+
+    <Button
+        android:layout_marginRight="6dp"
+        android:text="@string/Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_confirm"
+        android:layout_alignBottom="@+id/tf_enter_amount"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_marginTop="9dp"
+        android:id="@+id/tf_enter_amount"
+        android:hint="@string/EnterAmount"
+        android:layout_marginRight="100dp"
+        android:layout_below="@+id/tf_enter_details"
+        android:layout_alignStart="@+id/tf_type" />
+
+    <EditText
+        android:layout_marginTop="9dp"
+        android:nextFocusDown="@id/tf_enter_amount"
+        android:hint="@string/EnterDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/tf_enter_details"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/tf_type"
+        android:layout_alignStart="@+id/tf_type" />
+
+    <EditText
+        android:nextFocusDown="@+id/tf_enter_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="27dp"
+        android:id="@+id/tf_type"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/TransactionType"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

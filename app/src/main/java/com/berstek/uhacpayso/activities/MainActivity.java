@@ -1,5 +1,7 @@
 package com.berstek.uhacpayso.activities;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,13 +12,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.berstek.uhacpayso.R;
+import com.berstek.uhacpayso.fragments.AddTransactionFragment;
+import com.berstek.uhacpayso.fragments.CashManagementFragment;
+import com.berstek.uhacpayso.fragments.NoCycleFragment;
 import com.berstek.uhacpayso.model.AppSettings;
+import com.berstek.uhacpayso.model.CycleBuilder;
+import com.berstek.uhacpayso.model.CycleData;
 import com.berstek.uhacpayso.model.DatabaseBuilder;
+import com.berstek.uhacpayso.utils.CycleUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,25 +38,25 @@ public class MainActivity extends AppCompatActivity
         DatabaseBuilder databaseBuilder = new DatabaseBuilder(this);
         AppSettings appSettings = new AppSettings(this);
 
-        if(appSettings.getSetupStatus() == 0) {
-            Intent intent = new Intent(this, WelcomePagerActivity.class);
-            startActivity(intent);
-        }
-        else {
-
-        }
-
-        launchHome();
-
+        launch();
     }
 
     @Override
     public void onBackPressed() {
+        AddTransactionFragment fragment = (AddTransactionFragment)getFragmentManager().findFragmentByTag("TRANSACTION");
+        if(fragment != null && fragment.isVisible()) {
+            cashManagementFragment.getFab().setVisibility(View.VISIBLE);
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (getFragmentManager().getBackStackEntryCount() > 0) {
+                getFragmentManager().popBackStack();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -98,26 +107,57 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void launchHome() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    private CashManagementFragment cashManagementFragment;
+    private void launch() {
+        //Create database and necessary tables if non-existent.
+        DatabaseBuilder databaseBuild = new DatabaseBuilder(this);
+        //Kapag 0, ibig sabihin, hindi pa nia tapos ung setup. Mareredirect sya sa Initial Setup Activity
+        AppSettings appSettings = new AppSettings(this);
+        if(appSettings.getSetupStatus() == 0) {
+            Intent intent = new Intent(this, WelcomePagerActivity.class);
+            startActivity(intent);
+        }
+        else {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            CycleData data = new CycleData(this);
+            if(data.hasActiveCycle()) {
+                cashManagementFragment = new CashManagementFragment();
+                fragmentTransaction.replace(R.id.fragment_main_fragment, cashManagementFragment);
+                fragmentTransaction.commit();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                drawer.setDrawerListener(toggle);
+                toggle.syncState();
+
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
+
+            } else {
+                //This code segment is reached if user selects to start a cycle at a later date and there is no active cycle
+                NoCycleFragment noCycleFragment = new NoCycleFragment();
+                fragmentTransaction.replace(R.id.fragment_main_fragment, noCycleFragment);
+                fragmentTransaction.commit();
             }
-        });
+        }
+        if (CycleUtils.getCurrentDay().equals(appSettings.getCycleStart()) && appSettings.getSetupStatus() == 1){
+            try {
+                CycleBuilder cycleBuilder = new CycleBuilder(this);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d(null, "DATABASE ALREADY EXISTS");
+            }
+        }
+    }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        launch();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 }

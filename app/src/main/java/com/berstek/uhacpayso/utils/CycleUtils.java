@@ -69,7 +69,7 @@ public class CycleUtils {
             case "saturday":
             case "sunday":
 
-            return (7 - dayToInt(startDate)) + dayToInt(startDate);
+            return (7 - dayToInt(startDate)) + dayToInt(currentDate);
 
             default: return 0;
         }
