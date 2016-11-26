@@ -18,7 +18,7 @@ public class WeeklyDifferential {
             remainingDays = (7 - current) + start;
         }
         else {
-            remainingDays = (7 - start) + current;
+            remainingDays = start - current;
         }
 
         return remainingDays;
@@ -33,8 +33,9 @@ public class WeeklyDifferential {
             case "friday": return 5;
             case "saturday": return 6;
             case "sunday": return 7;
+            default:return 1000;
+
         }
-        return 1;
     }
 
     private static int getEnd(int start) {
@@ -43,5 +44,13 @@ public class WeeklyDifferential {
         } else {
             return start - 1;
         }
+    }
+
+    private int specialCase() {
+        int start = 5;
+        int current = 1;
+        int answer = 4;
+
+        return 0;
     }
 }
