@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">PaySo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_currency">Select Currency</string>
+    <string name="Monthly">Monthly</string>
+    <string name="Weekly">Weekly</string>
+    <string name="Custom">Custom</string>
+    <string name="SelectWhenItStarts">Select when it starts</string>
+    <string name="SelectCurrency">Select Currency</string>
+    <string name="Monday">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Friday">Friday</string>
+    <string name="Saturday">Saturday</string>
+    <string name="Sunday">Sunday</string>
+    <string name="SelectCycleStart">Select Start of Cycle</string>
+    <string name="Welcome">Welcome to PaySo</string>
+    <string name="Reset">Reset</string>
+    <string name="Confirm">Confirm</string>
+    <string name="EnterAmount">Enter Amount</string>
+    <string name="EnterDetails">Enter Details</string>
+    <string name="EstimatedSavings">Estimated Savings</string>
+    <string name="Done">Done</string>
+    <string name="TransactionType">Transaction Type</string>
+    <string name="MyProfile">My Profile</string>
+    <string name="History">History</string>
+    <string name="Savings">Savings</string>
+    <string name="Reports">Reports</string>
+    <string name="Banks">Banks</string>
+    <string name="MyAccount">My Account</string>
+    <string name="CashOnHand">Cash On Hand</string>
+    <string name="SpareCash">Spare Cash</string>
+    <string name="LinkAccount">Link Account</string>
+    <string name="CashInBank">Cash in Bank</string>
+    <string name="Stats">Stats</string>
+    <string name="GetStarted">Get Started</string>
+    <string name="Quote">"A penny saved is a penny earned."</string>
+</resources>

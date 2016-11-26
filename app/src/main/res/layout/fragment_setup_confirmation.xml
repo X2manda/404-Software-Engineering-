@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.berstek.uhacpayso.fragments.SetupConfirmationFragment"
+    android:layout_marginTop="60dp"
+    android:background="@android:color/white">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+
+        >
+
+        <TextView
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="P"
+            android:textSize="24sp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:id="@+id/txt_current_symbol" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="10dp"
+        android:layout_margin="10dp"
+
+        app:cardBackgroundColor="@color/colorPrimary"
+
+        >
+
+        <TextView
+            android:layout_margin="15dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Starts every Monday"
+            android:textSize="24sp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:id="@+id/txt_current_cycle" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+
+        >
+
+        <TextView
+            android:layout_margin="15dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="P 898 daily budget"
+            android:textSize="24sp"
+            android:background="?attr/colorPrimary"
+            android:textColor="@color/white"
+            android:id="@+id/txt_daily_budget" />
+
+    </android.support.v7.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/Reset"
+            android:elevation="10dp"
+            android:layout_margin="8dp"
+            android:id="@+id/btn_reset"></Button>
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/Confirm"
+            android:elevation="10dp"
+            android:layout_margin="8dp"
+            android:id="@+id/btn_confirm"></Button>
+
+    </LinearLayout>
+
+
+</LinearLayout>

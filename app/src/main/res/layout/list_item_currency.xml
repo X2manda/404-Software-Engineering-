@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingTop="1dp"
+        android:id="@+id/item_currency"
+
+    >
+        <TextView
+            android:text="Philippines"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/txt_country"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="12dp"
+            />
+
+        <TextView
+            android:text="PHP - Philippine Peso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_iso_currency"
+            android:textSize="10sp"
+            android:layout_below="@+id/txt_country"
+            android:layout_alignStart="@+id/txt_country" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_symbol"
+            tools:text="₱ "
+            android:textSize="24sp"
+            android:layout_alignBottom="@+id/txt_iso_currency"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp" />
+    </RelativeLayout>
