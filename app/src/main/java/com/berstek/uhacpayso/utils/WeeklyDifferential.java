@@ -12,13 +12,13 @@ public class WeeklyDifferential {
         int start = getDayValue(startDay);
         int end = getEnd(start);
         int current = getDayValue(currentCurrentDay);
-        int remainingDays = 0;
+        int remainingDays;
 
-        if(current > start) {
+        if(current >= start) {
             remainingDays = (7 - current) + start;
         }
         else {
-            remainingDays = (7 - current) + start - 7;
+            remainingDays = (7 - start) + current;
         }
 
         return remainingDays;
