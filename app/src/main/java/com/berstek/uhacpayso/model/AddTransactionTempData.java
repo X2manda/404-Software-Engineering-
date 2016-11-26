@@ -8,8 +8,8 @@ import android.content.Context;
 
 public class AddTransactionTempData {
 
-    public AddTransactionTempData(Context context) {
-        CycleData data = new CycleData(context);
+    public AddTransactionTempData(Context context, String date) {
+        CycleData data = new CycleData(context, date);
         cycle = data.getActiveCycle();
     }
 

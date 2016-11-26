@@ -15,6 +15,7 @@ import com.berstek.uhacpayso.R;
 import com.berstek.uhacpayso.adapters.TransactionSelectionAdapter;
 import com.berstek.uhacpayso.model.AddTransactionTempData;
 import com.berstek.uhacpayso.model.TransactionSelectionData;
+import com.berstek.uhacpayso.utils.CycleUtils;
 
 
 /**
@@ -52,7 +53,7 @@ public class AddTransactionFragment extends Fragment implements TransactionSelec
 
     @Override
     public void onItemClick(int p) {
-        AddTransactionTempData tempData = new AddTransactionTempData(view.getContext());
+        AddTransactionTempData tempData = new AddTransactionTempData(view.getContext(), CycleUtils.getCurrentDate());
         tempData.setType(transactionSelectionData.getData().get(p).getDetails());
 
         FragmentManager fragmentManager = getFragmentManager();

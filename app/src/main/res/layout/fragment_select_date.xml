@@ -3,11 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.berstek.mobileappuhac3.fragments.SelectDateFragment"
+    tools:context="com.berstek.uhacpayso.fragments.SelectDateFragment"
     app:cardElevation="5dp"
     android:layout_marginTop="2dp">
-
-    <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
         android:layout_width="match_parent"

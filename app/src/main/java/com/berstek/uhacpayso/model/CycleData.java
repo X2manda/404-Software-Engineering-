@@ -27,11 +27,12 @@ public class CycleData extends SQLiteOpenHelper {
     private String activeCycleQuery = "select * from cycles where status = 1";
 
     private SQLiteDatabase db;
+    private String date;
 
-    public CycleData(Context context) {
+    public CycleData(Context context, String date) {
         super(context, DATABASE_NAME, null, 1);
         db = this.getWritableDatabase();
-
+        this.date = date;
         loadActiveCycleData();
         loadCycleTotalSpending();
         loadDailyTotalSpending();

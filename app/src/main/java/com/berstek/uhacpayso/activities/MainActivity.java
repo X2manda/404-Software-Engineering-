@@ -133,9 +133,10 @@ public class MainActivity extends AppCompatActivity
         else {
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            CycleData data = new CycleData(this);
+            CycleData data = new CycleData(this, CycleUtils.getCurrentDate());
             if(data.hasActiveCycle()) {
                 cashManagementFragment = new CashManagementFragment();
+                cashManagementFragment.setDate(CycleUtils.getCurrentDate());
                 fragmentTransaction.replace(R.id.fragment_main_fragment, cashManagementFragment);
                 fragmentTransaction.commit();
 

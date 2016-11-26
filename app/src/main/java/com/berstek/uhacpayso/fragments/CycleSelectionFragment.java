@@ -15,11 +15,12 @@ import android.widget.TextView;
 import com.berstek.uhacpayso.R;
 import com.berstek.uhacpayso.model.SetupTempData;
 
+import static android.R.attr.fragment;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CycleSelectionFragment extends Fragment {
-
 
     public CycleSelectionFragment() {
         // Required empty public constructor
@@ -34,6 +35,7 @@ public class CycleSelectionFragment extends Fragment {
         currentCurrencyText.setText(setupTempData.getCurrency() + "(" + setupTempData.getSymbol() + ")");
         listenToChangeCurrency(view);
         listenToRadio(view);
+
         return view;
     }
 
@@ -66,11 +68,11 @@ public class CycleSelectionFragment extends Fragment {
         weekRB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SelectDayFragment fragment = new SelectDayFragment();
-                fragment.setSetupTempData(setupTempData);
+                SelectDayFragment selectDayFragment = new SelectDayFragment();
+                selectDayFragment.setSetupTempData(setupTempData);
                 //fragment.setCurrency(message);
                 FragmentManager fn = getFragmentManager();
-                fn.beginTransaction().replace(R.id.fragment_setup_month, fragment).commit();
+                fn.beginTransaction().replace(R.id.fragment_setup_month, selectDayFragment).commit();
             }
         });
     }

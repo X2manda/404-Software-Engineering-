@@ -23,11 +23,6 @@
             android:id="@+id/nav_stats"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/Stats" />
-
-        <item
-            android:id="@+id/nav_banks"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/Banks" />
     </group>
 
 </menu>

@@ -2,6 +2,8 @@ package com.berstek.uhacpayso.fragments;
 
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,18 +14,18 @@ import android.view.ViewGroup;
 import com.berstek.uhacpayso.R;
 import com.berstek.uhacpayso.adapters.CycleHistoryAdapter;
 import com.berstek.uhacpayso.model.CycleHistoryData;
+import com.berstek.uhacpayso.utils.CycleUtils;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends Fragment implements CycleHistoryAdapter.ItemClickCallback{
 
 
     public HistoryFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -41,7 +43,18 @@ public class HistoryFragment extends Fragment {
 
         CycleHistoryAdapter adapter = new CycleHistoryAdapter(data.getData(), getActivity());
         recyclerView.setAdapter(adapter);
+        adapter.setItemClickCallback(this);
 
         return view;
+    }
+
+    @Override
+    public void onItemClick(int p) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction().addToBackStack(null);
+        CashManagementFragment fragment = new CashManagementFragment();
+        fragment.setDate(CycleUtils.getCurrentDate());
+        transaction.replace(R.id.fragment_main_fragment, fragment);
+        transaction.commit();
     }
 }

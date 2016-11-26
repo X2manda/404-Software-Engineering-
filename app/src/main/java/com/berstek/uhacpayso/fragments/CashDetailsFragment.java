@@ -16,6 +16,7 @@ import com.berstek.uhacpayso.R;
 import com.berstek.uhacpayso.adapters.RecentActivitiesAdapter;
 import com.berstek.uhacpayso.model.CycleData;
 import com.berstek.uhacpayso.model.RecentActivitiesData;
+import com.berstek.uhacpayso.utils.CycleUtils;
 
 import java.text.DecimalFormat;
 
@@ -27,8 +28,14 @@ public class CashDetailsFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecentActivitiesAdapter adapter;
 
+    private String date;
+
     public CashDetailsFragment() {
         // Required empty public constructor
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     DecimalFormat d = new DecimalFormat("0.00");
@@ -39,7 +46,7 @@ public class CashDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cash_details, container, false);
 
-        CycleData cycleData = new CycleData(view.getContext());
+        CycleData cycleData = new CycleData(view.getContext(), date);
 
         TextView totalBudgetTxt = (TextView)view.findViewById(R.id.txt_total_budget);
         totalBudgetTxt.setText(d.format(cycleData.getTotalBudget() - cycleData.getTotalSpendings()));

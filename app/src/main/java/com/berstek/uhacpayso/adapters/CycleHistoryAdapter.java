@@ -51,7 +51,7 @@ public class CycleHistoryAdapter extends RecyclerView.Adapter<CycleHistoryAdapte
     }
 
 
-    class ListHolder extends RecyclerView.ViewHolder {
+    class ListHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView date, totalSpending;
         private View container;
@@ -61,6 +61,24 @@ public class CycleHistoryAdapter extends RecyclerView.Adapter<CycleHistoryAdapte
 
             date = (TextView)itemView.findViewById(R.id.txt_date);
             totalSpending = (TextView)itemView.findViewById(R.id.txt_total_spending);
+            container = itemView.findViewById(R.id.item_history);
+            container.setOnClickListener(this);
         }
+
+
+        @Override
+        public void onClick(View view) {
+            itemClickCallback.onItemClick(getAdapterPosition());
+        }
+    }
+
+    private CycleHistoryAdapter.ItemClickCallback itemClickCallback;
+
+    public interface ItemClickCallback {
+        void onItemClick(int p);
+    }
+
+    public void setItemClickCallback(CycleHistoryAdapter.ItemClickCallback itemClickCallback) {
+        this.itemClickCallback = itemClickCallback;
     }
 }

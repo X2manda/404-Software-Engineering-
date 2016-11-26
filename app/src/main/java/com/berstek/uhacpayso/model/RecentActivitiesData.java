@@ -43,7 +43,7 @@ public class RecentActivitiesData extends SQLiteOpenHelper {
 
     public void loadData() {
         Cursor c = db.rawQuery("select type, cost, details from CYCLE_" +
-                new CycleData(context).getActiveCycle().replace("-", "_") + " where transaction_date = '" + CycleUtils.getCurrentDate() + "'", null);
+                new CycleData(context, CycleUtils.getCurrentDate()).getActiveCycle().replace("-", "_") + " where transaction_date = '" + CycleUtils.getCurrentDate() + "'", null);
         if(c.moveToFirst()){
             do{
                 types.add(c.getString(0));

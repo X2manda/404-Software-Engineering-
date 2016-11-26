@@ -26,8 +26,13 @@ import java.text.DecimalFormat;
  */
 public class CashManagementFragment extends Fragment {
 
+    private String date;
     public CashManagementFragment() {
         // Required empty public constructor
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     private DecimalFormat d = new DecimalFormat("0.00");
@@ -47,7 +52,7 @@ public class CashManagementFragment extends Fragment {
         TextView spendingOverAllowance = (TextView)view.findViewById(R.id.txt_spending_over_allowance);
 
         AppSettings settings = new AppSettings(view.getContext());
-        CycleData cycleData = new CycleData(view.getContext());
+        CycleData cycleData = new CycleData(view.getContext(), date);
 
         double totalDailySpending = cycleData.getDailyTotalSpending(),
                 dailyAllowance = cycleData.getDailyBudget(),
