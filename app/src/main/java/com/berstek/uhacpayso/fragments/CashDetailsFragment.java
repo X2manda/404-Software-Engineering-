@@ -32,6 +32,7 @@ public class CashDetailsFragment extends Fragment {
 
     public CashDetailsFragment() {
         // Required empty public constructor
+        date = CycleUtils.getCurrentDate();
     }
 
     public void setDate(String date) {
@@ -62,7 +63,7 @@ public class CashDetailsFragment extends Fragment {
         recyclerView = (RecyclerView)view.findViewById(R.id.recview_recent_activities);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        RecentActivitiesData data = new RecentActivitiesData(view.getContext());
+        RecentActivitiesData data = new RecentActivitiesData(view.getContext(), date);
         data.loadData();
 
         adapter = new RecentActivitiesAdapter(data.getData(), getActivity());

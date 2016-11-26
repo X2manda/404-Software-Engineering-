@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/txt_country"
+            android:id="@+id/txt_date"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="12dp"
@@ -24,10 +24,10 @@
             android:text="PHP - Philippine Peso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txt_iso_currency"
+            android:id="@+id/txt_allowance"
             android:textSize="10sp"
-            android:layout_below="@+id/txt_country"
-            android:layout_alignStart="@+id/txt_country" />
+            android:layout_below="@+id/txt_date"
+            android:layout_alignStart="@+id/txt_date" />
 
         <TextView
             android:text="TextView"
@@ -36,7 +36,7 @@
             android:id="@+id/txt_symbol"
             tools:text="₱ "
             android:textSize="24sp"
-            android:layout_alignBottom="@+id/txt_iso_currency"
+            android:layout_alignBottom="@+id/txt_allowance"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="16dp" />
     </RelativeLayout>

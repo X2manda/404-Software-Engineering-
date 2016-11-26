@@ -52,8 +52,8 @@ public class HistoryFragment extends Fragment implements CycleHistoryAdapter.Ite
     public void onItemClick(int p) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction().addToBackStack(null);
-        CashManagementFragment fragment = new CashManagementFragment();
-        fragment.setDate(CycleUtils.getCurrentDate());
+        DaysHistoryFragment fragment = new DaysHistoryFragment();
+       // fragment.setDate(CycleUtils.getCurrentDate());
         transaction.replace(R.id.fragment_main_fragment, fragment);
         transaction.commit();
     }

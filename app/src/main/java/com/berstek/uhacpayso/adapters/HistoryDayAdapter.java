@@ -7,17 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.berstek.uhacpayso.R;
-import com.berstek.uhacpayso.staticData.Currency;
+import com.berstek.uhacpayso.model.HistoryDayItem;
 
 import java.util.List;
+
 
 /**
  * Created by John on 11/26/2016.
  */
 
-public class CurrenciesAdapter extends RecyclerView.Adapter<CurrenciesAdapter.ListHolder> {
+public class HistoryDayAdapter extends RecyclerView.Adapter<HistoryDayAdapter.ListHolder> {
 
     private List listData;
     private LayoutInflater inflater;
@@ -33,7 +33,7 @@ public class CurrenciesAdapter extends RecyclerView.Adapter<CurrenciesAdapter.Li
         this.itemClickCallback = itemClickCallback;
     }
 
-    public CurrenciesAdapter(List<Currency> listData, Context context) {
+    public HistoryDayAdapter(List<HistoryDayItem> listData, Context context) {
         this.listData = listData;
         inflater = LayoutInflater.from(context);
         this.context = context;
@@ -47,10 +47,10 @@ public class CurrenciesAdapter extends RecyclerView.Adapter<CurrenciesAdapter.Li
 
     @Override
     public void onBindViewHolder(ListHolder holder, int position) {
-        Currency listItem = (Currency) listData.get(position);
-        holder.country.setText(listItem.getCountry());
-        holder.iso_currency.setText(listItem.getIso() + " - " + listItem.getCurrency());
-        holder.symbol.setText(listItem.getSymbol());
+        HistoryDayItem listItem = (HistoryDayItem) listData.get(position);
+        //holder.spending.setText(listItem.getSpending());
+        holder.date.setText(listItem.getDate());
+
     }
 
     @Override
@@ -61,15 +61,14 @@ public class CurrenciesAdapter extends RecyclerView.Adapter<CurrenciesAdapter.Li
 
     class ListHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private TextView country, iso_currency, symbol;
+        private TextView date, spending;
         private View container;
 
         public ListHolder(View itemView) {
             super(itemView);
             container = itemView.findViewById(R.id.item_currency);
-            country = (TextView) itemView.findViewById(R.id.txt_date);
-            iso_currency = (TextView) itemView.findViewById(R.id.txt_allowance);
-            symbol = (TextView) itemView.findViewById(R.id.txt_symbol);
+            spending = (TextView) itemView.findViewById(R.id.txt_spending);
+            date = (TextView) itemView.findViewById(R.id.txt_date);
             container.setOnClickListener(this);
         }
 

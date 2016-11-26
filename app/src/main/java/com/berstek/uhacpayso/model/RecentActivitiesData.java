@@ -30,11 +30,12 @@ public class RecentActivitiesData extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "PAYSO_DATABASE";
 
-
-    public RecentActivitiesData(Context context) {
+    private String date;
+    public RecentActivitiesData(Context context, String date) {
         super(context, DATABASE_NAME, null, AppVersion.getVersion());
         db = this.getWritableDatabase();
         this.context = context;
+        this.date = date;
     }
 
     public ArrayList<Double> getCosts() {
@@ -43,7 +44,7 @@ public class RecentActivitiesData extends SQLiteOpenHelper {
 
     public void loadData() {
         Cursor c = db.rawQuery("select type, cost, details from CYCLE_" +
-                new CycleData(context, CycleUtils.getCurrentDate()).getActiveCycle().replace("-", "_") + " where transaction_date = '" + CycleUtils.getCurrentDate() + "'", null);
+                new CycleData(context, date).getActiveCycle().replace("-", "_") + " where transaction_date = '" + date + "'", null);
         if(c.moveToFirst()){
             do{
                 types.add(c.getString(0));
