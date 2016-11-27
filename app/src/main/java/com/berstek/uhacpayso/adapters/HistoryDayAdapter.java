@@ -11,6 +11,7 @@ import com.berstek.uhacpayso.R;
 import com.berstek.uhacpayso.model.HistoryDayItem;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 
 /**
@@ -22,6 +23,8 @@ public class HistoryDayAdapter extends RecyclerView.Adapter<HistoryDayAdapter.Li
     private List listData;
     private LayoutInflater inflater;
     private Context context;
+
+    private String date = "";
 
     private ItemClickCallback itemClickCallback;
 
@@ -41,16 +44,15 @@ public class HistoryDayAdapter extends RecyclerView.Adapter<HistoryDayAdapter.Li
 
     @Override
     public ListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.list_item_currency, parent, false);
+        View view = inflater.inflate(R.layout.list_item_days, parent, false);
         return new ListHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ListHolder holder, int position) {
         HistoryDayItem listItem = (HistoryDayItem) listData.get(position);
-        //holder.spending.setText(listItem.getSpending());
+        holder.spending.setText(listItem.getSpending());
         holder.date.setText(listItem.getDate());
-
     }
 
     @Override
@@ -66,15 +68,15 @@ public class HistoryDayAdapter extends RecyclerView.Adapter<HistoryDayAdapter.Li
 
         public ListHolder(View itemView) {
             super(itemView);
-            container = itemView.findViewById(R.id.item_currency);
-            spending = (TextView) itemView.findViewById(R.id.txt_spending);
+            container = itemView.findViewById(R.id.item_days_history);
+            spending = (TextView) itemView.findViewById(R.id.txt_total_spending);
             date = (TextView) itemView.findViewById(R.id.txt_date);
             container.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == R.id.item_currency) {
+            if (v.getId() == R.id.item_days_history) {
                 itemClickCallback.onItemClick(getAdapterPosition());
             }
         }

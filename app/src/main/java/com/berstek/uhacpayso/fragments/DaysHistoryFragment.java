@@ -54,9 +54,9 @@ public class DaysHistoryFragment extends Fragment implements HistoryDayAdapter.I
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction().addToBackStack(null);
         CashManagementFragment fragment = new CashManagementFragment();
-
+        fragment.setDate(CycleUtils.getCurrentDate());
         fragment.setDate(data.getData().get(p).getDate());
-        // fragment.setDate(CycleUtils.getCurrentDate());
+        fragment.setDate(CycleUtils.getCurrentDate());
         transaction.replace(R.id.fragment_main_fragment, fragment);
         transaction.commit();
     }

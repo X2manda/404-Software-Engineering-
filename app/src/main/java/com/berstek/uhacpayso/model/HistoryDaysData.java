@@ -30,7 +30,7 @@ public class HistoryDaysData extends SQLiteOpenHelper{
         if(c.moveToFirst()){
             do{
                 days.add(c.getString(0));
-                //spendings.add(decimalFormat.format(spendingGetter.getTotalSpending(c.getString(0))));
+                spendings.add(decimalFormat.format(spendingGetter.getTotalSpending(c.getString(0))));
             }while(c.moveToNext());
         }
         c.close();
@@ -54,7 +54,7 @@ public class HistoryDaysData extends SQLiteOpenHelper{
         for(;i >= 0; i--) {
             HistoryDayItem item = new HistoryDayItem();
             item.setDate(days.get(i));
-           //item.setSpending(spendings.get(i));
+            item.setSpending(spendings.get(i));
             data.add(item);
         }
         return data;

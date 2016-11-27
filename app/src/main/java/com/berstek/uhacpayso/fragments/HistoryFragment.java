@@ -53,7 +53,7 @@ public class HistoryFragment extends Fragment implements CycleHistoryAdapter.Ite
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction().addToBackStack(null);
         DaysHistoryFragment fragment = new DaysHistoryFragment();
-       // fragment.setDate(CycleUtils.getCurrentDate());
+        //fragment.setDate(CycleUtils.getCurrentDate());
         transaction.replace(R.id.fragment_main_fragment, fragment);
         transaction.commit();
     }

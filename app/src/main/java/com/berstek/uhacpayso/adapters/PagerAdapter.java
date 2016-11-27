@@ -26,15 +26,13 @@ public class PagerAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0: return new WelcomeMainFragment();
             case 1: return new WelcomeTrackFragment();
-            case 2: return new WelcomeMonitorFragment();
-            case 3: return new WelcomeManageFragment();
-            case 4: return new WelcomeQuoteFragment();
+            case 2: return new WelcomeQuoteFragment();
         }
         return new WelcomeQuoteFragment();
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return 3;
     }
 }
