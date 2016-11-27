@@ -85,6 +85,7 @@ public class SetupConfirmationFragment extends Fragment {
                 CycleBuilder cycleBuilder = new CycleBuilder(view.getContext());
 
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
