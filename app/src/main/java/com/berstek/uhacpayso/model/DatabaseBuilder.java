@@ -51,6 +51,7 @@ public class DatabaseBuilder extends SQLiteOpenHelper {
         db.execSQL(createTransactionItemsTable);
         insertInitTransactionItemsData(db);
         db.execSQL(createDailyQuotesRecord);
+        db.execSQL(createSpareCashTable);
     }
 
     @Override
@@ -101,4 +102,6 @@ public class DatabaseBuilder extends SQLiteOpenHelper {
 
     private static final String createDailyQuotesRecord = "create table DAILY_QUOTES_RECORD (" +
             "SESSION_DATE DATE PRIMARY KEY NOT NULL, QUOTE_INDEX INTEGER)";
+
+    private static final String createSpareCashTable = "create table spare_cash(total_cash double)";
 }

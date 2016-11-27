@@ -1,9 +1,65 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.berstek.uhacpayso.fragments.AppSettingsFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/countryTF"
+        android:layout_alignTop="@+id/countryBtn"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+        android:layout_alignBottom="@+id/countryBtn"
+        android:text="Country" />
 
-</FrameLayout>
+    <Button
+        android:text="Change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/countryBtn" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/cycleTypeTF"
+        android:layout_below="@+id/countryTF"
+        android:layout_alignStart="@+id/countryTF"
+        android:layout_marginTop="34dp"
+        android:text="Weekly" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Start Cycle"
+        android:ems="10"
+        android:id="@+id/cycleStartTF"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/cycleTypeTF"
+        android:layout_alignStart="@+id/cycleTypeTF" />
+
+    <Button
+        android:text="Change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cycleTypeBtn"
+        android:layout_alignTop="@+id/cycleTypeTF"
+        android:layout_alignStart="@+id/countryBtn" />
+
+    <Button
+        android:text="Change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cycleStartBtn"
+        android:layout_alignTop="@+id/cycleStartTF"
+        android:layout_alignStart="@+id/cycleTypeBtn" />
+</RelativeLayout>
