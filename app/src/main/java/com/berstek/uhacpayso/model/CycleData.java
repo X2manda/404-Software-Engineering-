@@ -123,7 +123,8 @@ public class CycleData extends SQLiteOpenHelper {
     }
 
     public int getRemainingDays() {
-        return CycleUtils.getRemainingDays(startDay, CycleUtils.getCurrentDay());
+
+        return WeeklyDifferential.getDayDifference(startDay, CycleUtils.getCurrentDay());
     }
 
     public int getTotalDays() {
