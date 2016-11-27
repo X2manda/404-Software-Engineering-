@@ -58,7 +58,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/ic_happy_face"
+        android:src="@drawable/ic_happy"
         android:id="@+id/imageView3"
         android:layout_below="@+id/textView13"
         android:layout_alignParentEnd="true"

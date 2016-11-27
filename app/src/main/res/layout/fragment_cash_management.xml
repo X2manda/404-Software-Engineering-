@@ -62,8 +62,7 @@
                     android:layout_marginBottom="30dp"
                     android:max="100"
                     android:progress="80"
-                    android:progressDrawable="@drawable/circular_progress"
-                    />
+                    android:progressDrawable="@drawable/circular_progress"/>
 
 
                 <TextView

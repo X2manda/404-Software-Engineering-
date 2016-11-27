@@ -5,20 +5,29 @@
     android:layout_height="match_parent"
     tools:context="com.berstek.uhacpayso.fragments.DailyQuoteFragment">
 
+    <TextView
+        android:textColor="@color/white"
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView5" />
+
     <LinearLayout
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="15dp"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="199dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/txt_quote"
-            android:layout_weight="1"
             android:textAlignment="center"
             android:textSize="20sp"
             android:text="@string/Quote" />
@@ -32,14 +41,5 @@
             android:textAlignment="viewStart" />
 
     </LinearLayout>
-
-    <TextView
-        android:textColor="@color/white"
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView5" />
 
 </RelativeLayout>

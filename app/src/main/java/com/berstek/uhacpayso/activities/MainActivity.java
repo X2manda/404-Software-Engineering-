@@ -45,6 +45,11 @@ public class MainActivity extends AppCompatActivity
         launch();
     }
 
+
+
+
+
+
     @Override
     public void onBackPressed() {
         AddTransactionFragment fragment = (AddTransactionFragment)getFragmentManager().findFragmentByTag("TRANSACTION");

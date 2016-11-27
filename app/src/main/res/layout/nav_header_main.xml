@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@color/colorPrimary"
@@ -8,15 +9,39 @@
 
 
     <TextView
-        android:text="November 26, 2016"
+        android:text="26 November"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:id="@+id/txt_current_date"
-        android:textSize="24sp"
-        android:layout_marginTop="41dp"
-        android:layout_alignParentTop="true"
+        android:textSize="40sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/cardview_light_background"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:textStyle="normal|bold" />
+
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:text="It's"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:textColor="@color/cardview_light_background"
+        android:id="@+id/txt_its"
+        android:layout_alignBaseline="@+id/txt_date"
+        android:layout_alignBottom="@+id/txt_date"
+        android:layout_alignStart="@+id/txt_current_date" />
+
+    <TextView
+        android:text="Saturday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_date"
+        android:textSize="40sp"
+        android:textColor="@color/cardview_light_background"
+        android:layout_marginStart="14dp"
+        android:layout_above="@+id/txt_current_date"
+        android:layout_toEndOf="@+id/txt_its" />
 
 </RelativeLayout>
